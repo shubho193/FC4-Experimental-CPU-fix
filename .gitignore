@@ -1,0 +1,9 @@
+# build outputs (shipped via GitHub Releases)
+*.dll
+*.obj
+*.exp
+*.lib
+*.pdb
+# local logs
+*.log
+dist/
