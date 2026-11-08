@@ -13,7 +13,11 @@ frame drops (e.g. FPS dipping into the 40s in crowded areas while the GPU is und
 - **1 ms timer resolution** and **opt-out of Windows power throttling (EcoQoS)**.
 - **Skip intro videos** (optional).
 - Optional flip-model swap chain conversion (**off by default** – crashes in borderless mode).
-- Optional built-in profiler that logs where the main/render threads wait.
+- Optional built-in profiler that logs where the main/render threads wait (`Profiler=1`).
+- Optional hotspot capture (`Profiler=2`): press **F10** in game to sample which engine code the main and
+  render threads run for 20 s. Results go to `fc4corefix-hot.log`, plus full call chains in
+  `fc4corefix-stacks-N.bin`. The first capture also saves the unpacked engine image (`fc64_dump.bin`,
+  ~110 MB) for offline disassembly. This is for personal analysis only; don't redistribute it.
 
 ## Install
 1. Download the zip from [Releases](../../releases).
@@ -51,7 +55,7 @@ Output: `dinput8.dll`.
 |---|---|
 | `fc4corefix.c` | Main source (proxy exports, config, hooks) |
 | `jobthreads.inc` | Job-worker cap |
-| `profiler.inc` | Optional wait profiler |
+| `profiler.inc` | Optional wait profiler and F10 hotspot capture |
 | `dinput8.def` | Export definitions |
 | `build.bat` | MSVC build script |
 | `fc4corefix.ini` | Default configuration |
